@@ -15,21 +15,6 @@ from PIL import Image
 import tensorflow as tf
 from tensorflow.keras import layers, models
 
-import zipfile
-# Path to the zip file
-zip_path = 'digit_dataset.zip'
-
-# Folder to extract to
-extract_folder = 'digit_dataset'
-
-# Only unzip if it hasn't been extracted yet
-if not os.path.exists(extract_folder):
-    with zipfile.ZipFile(zip_path, 'r') as zip_ref:
-        zip_ref.extractall(extract_folder)
-    print(f'Extracted {zip_path} into {extract_folder}')
-else:
-    print(f'{extract_folder} already exists. Skipping extraction.')
-
 # Function to load dataset
 def load_digit_images_from_folder(folder_path, image_size=(32, 32)):
     X = []
